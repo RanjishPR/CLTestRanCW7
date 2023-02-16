@@ -1,0 +1,26 @@
+# Generated services-manifest.yml based on template version 0.1.0
+# appName = BusinessPartnerValidation
+---
+create-services:
+# ------------------------------------------------------------
+  - name:   BusinessPartnerValidation-db
+    broker: hana  # 'hanatrial' on trial landscapes
+    plan: "hdi-shared"
+# ------------------------------------------------------------
+  - name:   BusinessPartnerValidation-xsuaa
+    broker: xsuaa
+    plan: application
+    parameters: "./xs-security.json"
+# ------------------------------------------------------------
+  - name:   BusinessPartnerValidation-ems
+    broker: enterprise-messaging
+    plan: default
+    parameters: "./em.json"
+# ------------------------------------------------------------
+  - name:   BusinessPartnerValidation-dest
+    broker: destination
+    plan: lite
+# ------------------------------------------------------------
+  - name:   BusinessPartnerValidation-cs
+    broker: connectivity
+    plan: lite
